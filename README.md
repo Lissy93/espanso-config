@@ -1,14 +1,13 @@
 
 <h1 align="center">My Espanso Config</h1>
 
-<p align="center">
-  <img width="500" src="https://i.ibb.co/0GTVC02/espanso-octocat.png" alt="espanso-octocat">
-</p>
-
 ## Intro
+
+<img align="right" width="350" src="https://i.ibb.co/0GTVC02/espanso-octocat.png">
+
 [Espanso](https://espanso.org/) is an open source, privacy-first, corss-platform text expander developed by [@federico-terzi](https://github.com/federico-terzi) and written in Rust. In short, it detects when you type a certain keyword, and replaces it on the fly with a pre-defined string or dynamic output.
 
-It uses a file-based configuration, written entirely in YAML (but I think there is a GUI [in development](https://github.com/federico-terzi/espanso/issues/255)), and for the most part is quick and easy to it it configured exactly to your liking. It runs on Windows, MacOS and Linux, and works with pretty much any program. Espanso not only supports simple text replacement/ expansion, but also images, custom scripts and shell commands, app-specific configurations and built-in date support. It's under active development, so 
+It uses a file-based configuration, written entirely in YAML (but I think there is a GUI [in development](https://github.com/federico-terzi/espanso/issues/255)), and for the most part is quick and easy to it it configured exactly to your liking. It runs on Windows, MacOS and Linux, and works with pretty much any program. Espanso not only supports simple text replacement/ expansion, but also images, custom scripts and shell commands, app-specific configurations and built-in date support. It's under active development, so hopefully there will be additional functionality added in the future. 
 
 This repo contains my personal configuration, which is bundled into my [dotfiles](https://github.com/Lissy93/dotfiles) to make setting up new systems easier. But I hope that it might also demonstrate a few of the awesome things that you can use Espanso for, including:
 - Quickly typing characters that do not appear on you're keyboard (such as foreign language characters, emojis or specialist symbols)
