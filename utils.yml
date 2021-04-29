@@ -1,0 +1,202 @@
+name: alicia-utils 
+package_author: Alicia Sykes <https://aliciasykes.com>
+parent: default
+matches:
+
+
+# Outputs public IP address
+- trigger: ":ip"
+  replace: "{{output}}"
+  vars:
+    - name: output
+      type: shell
+      params:
+        cmd: "curl 'https://api.ipify.org'"
+        
+# Outputs the current weather for your location
+- trigger: ":weather"
+  replace: "{{output}}"
+  vars:
+    - name: output
+      type: shell
+      params:
+        cmd: "curl 'http://wttr.in/?format=3'"
+        
+# Auto close brackets, quotes and formatting modifiers, and put cursor in center
+- trigger: ':('
+  replace: '($|$)'
+- trigger: ':['
+  replace: '[$|$]'
+- trigger: ':{'
+  replace: '{$|$}'
+- trigger: ':<'
+  replace: '<$|$>'
+- trigger: ':`'
+  replace: '`$|$`'
+- trigger: ":\'"
+  replace: "\'$|$\'"
+- trigger: ':"'
+  replace: '"$|$"'
+- trigger: ':_'
+  replace: '_$|$_'
+- trigger: ':*'
+  replace: '*$|$*'
+- trigger: ':**'
+  replace: '**$|$**'
+  
+# Inserts a markdown code block
+- trigger: :md-code
+  replace: "```\n$|$\n```"
+  
+# Inserts markdown collapsable section
+- trigger: :md-collapse
+  replace: "\n<details>\n\t<summary>$|$</summary>\n\t<p></p>\n</details>"
+    
+# Outputs markdown link, with clipboard contents as the URL
+- trigger: ":md-anchor"
+  replace: "[$|$]({{clipboard}})"
+  vars:
+  - name: "clipboard"
+    type: "clipboard"
+    
+# Creates a HTML anchor element, with clipboard contents as href
+- trigger: ":html-anchor"
+  replace: "<a href=\"{{clipboard}}\" />$|$</a>"
+  vars:
+  - name: "clipboard"
+    type: "clipboard"
+  
+# Inserts common HTML elements
+- trigger: :hr
+  replace: '<hr />'
+- trigger: :br
+  replace: '<br />'
+- trigger: :div
+  replace: '<div>$|$</div>'
+- trigger: :span
+  replace: '<span>$|$</span>'
+- trigger: :h1
+  replace: '<h1>$|$</h1>'
+- trigger: :h2
+  replace: '<h2>$|$</h2>'
+- trigger: :h3
+  replace: '<h3>$|$</h3>'
+- trigger: :para
+  replace: '<p>$|$</p>'
+  
+# Inserts any custom HTML, XML or web component tag 
+- trigger: ":tag"
+  replace: "<{{html.element}}>$|$</{{html.element}}>"
+  vars:
+  - name: "html"
+    type: form
+    params:
+      layout: "XML / HTML Element Inserter\nTag Name: {{element}}"
+      fields: { element: { type: text }}
+        
+# Outputs todays date (dd/mm/yy)
+- trigger: :date
+  replace: "{{date}}"
+  vars:
+  - name: date
+    type: date
+    params:
+      format: "%d/%m/%y"
+      
+# Outputs the current time (24hr)
+- trigger: :time
+  replace: "{{time}}"
+  vars:
+  - name: time
+    type: date
+    params:
+      format: "%H:%M"
+      
+# Outputs the month and year (e.g. January 2020)
+- trigger: :month
+  replace: "{{date}}"
+  vars:
+  - name: date
+    type: date
+    params:
+      format: "%B %Y"
+      
+# Easily inputs ASCII emojis from a dropdown
+- trigger: :lenny
+  form: "{{smileys}}"
+  form_fields:
+    smileys:
+      type: choice
+      values:
+      - '¯\\_(ツ)_/¯'
+      - '(╯°□°）╯︵ ┻━┻'
+      - '( ͡ಠ ʖ̯ ͡ಠ)'
+      - '☉ ‿ ⚆'
+      - 'ʕ•ᴥ•ʔ'
+      - '⋆｡˚ ☁︎ ˚｡⋆｡˚☽˚｡⋆'
+      - '◤◢◣◥◤◢◣◥'
+      - '(づᵔ◡ᵔ)づ'
+      - '|ᵔ‿ᵔ|'
+      - '⤜(*﹏*)⤏'
+      - 'ツ'
+      
+# Ouputs MIT License short text  
+- trigger: :mit-short
+  replace: "Licensed under MIT X11, © Alicia Sykes {{year}}: https://aliciasykes.com"
+  vars: [{name: year, type: date, params: {format: "%Y"}}]
+
+# Outputs full MIT license text, from GitHub
+- trigger: :mit-long
+  replace: "{{output}}"
+  vars:
+  - name: output
+    type: shell
+    params:
+      cmd: "curl 'https://gist.githubusercontent.com/Lissy93/143d2ee01ccc5c052a17/raw/a8ac96cd15847a231931b561d95d2de47066fd33/LICENSE.MD'"
+      
+# Personal email notes
+- trigger: :kr
+  replace: "Kind Regards,\nAlicia\n"
+  
+# Outputs git commit command, with cursor in the message block
+- trigger: :commit
+  replace: git commit -m "$|$"
+  
+# Fetches a funny commit message from whatthecommit.com
+- trigger: :wtc
+  replace: "{{output}}"
+  vars:
+  - name: output
+    type: shell
+    params: {cmd: "curl -s whatthecommit.com/index.txt"}
+      
+# Quick search, formulates the URL params for searching a given website
+- triggers: [:srch-ddg, :search-duckduckgo]
+  replace: 'https://duckduckgo.com/?q='
+- triggers: [:srch-wiki, :search-wikipedia]
+  replace: 'https://en.wikipedia.org/w/?search='
+- triggers: [:srch-gh, :search-github]
+  replace: 'https://github.com/search?q='
+- triggers: [:srch-so, :search-stackoverflow]
+  replace: 'https://stackoverflow.com/search?q='
+- triggers: [:srch-dh, :search-dockerhub]
+  replace: 'https://hub.docker.com/search?q='
+- triggers: [:srch-wa, :search-wolframalpha]
+  replace: 'https://www.wolframalpha.com/input/?i='
+- triggers: [:srch-red, :search-reddit]
+  replace: 'https://www.reddit.com/search/?q='
+- triggers: [:srch-bbc, :search-bbc]
+  replace: 'https://www.bbc.co.uk/search?q='
+- triggers: [:srch-bbc, :search-bbc]
+  replace: 'https://www.bbc.co.uk/search?q='
+- triggers: [:srch-vt, :search-virustotal]
+  replace: 'https://www.virustotal.com/gui/search/'
+- triggers: [:srch-amz, :search-amazon]
+  replace: 'https://amazon.co.uk/s?k='
+- triggers: [:srch-yt, :search-youtube]
+  replace: 'https://youtube.com/results?q='
+- triggers: [:srch-maps, :search-maps]
+  replace: 'https://www.google.com/maps/search/'
+- triggers: [:srch-g, :search-google]
+  replace: 'https://google.com/search?q='
+
