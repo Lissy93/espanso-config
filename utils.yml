@@ -1,8 +1,10 @@
+# Handy utilities, for use with Espanso, the open source cross-platform text expander
+# Licensed under MIT X11, © Alicia Sykes 2021: https://aliciasykes.com
+
 name: alicia-utils 
-package_author: Alicia Sykes <https://aliciasykes.com>
+package_author: Alicia Sykes <alicia@omg.lol>
 parent: default
 matches:
-
 
 # Outputs public IP address
 - trigger: ":ip"
@@ -41,8 +43,8 @@ matches:
   replace: '_$|$_'
 - trigger: ':*'
   replace: '*$|$*'
-- trigger: ':**'
-  replace: '**$|$**'
+- trigger: ':-'
+  replace: '-$|$-'
   
 # Inserts a markdown code block
 - trigger: :md-code
@@ -53,19 +55,26 @@ matches:
   replace: "\n<details>\n\t<summary>$|$</summary>\n\t<p></p>\n</details>"
     
 # Outputs markdown link, with clipboard contents as the URL
-- trigger: ":md-anchor"
+- trigger: ":md-link"
   replace: "[$|$]({{clipboard}})"
   vars:
   - name: "clipboard"
     type: "clipboard"
     
 # Creates a HTML anchor element, with clipboard contents as href
-- trigger: ":html-anchor"
+- trigger: ":html-link"
   replace: "<a href=\"{{clipboard}}\" />$|$</a>"
   vars:
   - name: "clipboard"
     type: "clipboard"
-  
+
+# Outputs BB Code link, with clipboard contents as the URL
+- trigger: ":bb-link"
+  replace: "[url={{clipboard}}]$|$[/url]"
+  vars:
+  - name: "clipboard"
+    type: "clipboard"
+    
 # Inserts common HTML elements
 - trigger: :hr
   replace: '<hr />'
@@ -169,6 +178,25 @@ matches:
   - name: output
     type: shell
     params: {cmd: "curl -s whatthecommit.com/index.txt"}
+   
+# Uses Lesspass to generatre a password for a given account
+# Requires the Lesspass CLI to be installed, see:
+# https://github.com/lesspass/lesspass/tree/master/cli   
+- trigger: :pass
+  replace: "{{lesspass}}"
+  vars:
+  - name: "params"
+    type: form
+    params:
+      layout: |
+        Less Pass Generator
+        Website: {{site}}
+        Login: {{login}}
+        Master Password: {{pass}}
+  - name: lesspass
+    type: shell
+    params:
+      cmd: "lesspass $ESPANSO_PARAMS_SITE $ESPANSO_PARAMS_LOGIN $ESPANSO_PARAMS_PASS"
       
 # Quick search, formulates the URL params for searching a given website
 - triggers: [:srch-ddg, :search-duckduckgo]
@@ -187,8 +215,6 @@ matches:
   replace: 'https://www.reddit.com/search/?q='
 - triggers: [:srch-bbc, :search-bbc]
   replace: 'https://www.bbc.co.uk/search?q='
-- triggers: [:srch-bbc, :search-bbc]
-  replace: 'https://www.bbc.co.uk/search?q='
 - triggers: [:srch-vt, :search-virustotal]
   replace: 'https://www.virustotal.com/gui/search/'
 - triggers: [:srch-amz, :search-amazon]
@@ -197,6 +223,50 @@ matches:
   replace: 'https://youtube.com/results?q='
 - triggers: [:srch-maps, :search-maps]
   replace: 'https://www.google.com/maps/search/'
-- triggers: [:srch-g, :search-google]
+- triggers: [:srch-goo, :search-google]
   replace: 'https://google.com/search?q='
 
+# Similar to above, but it uses the clipboard for the search query
+- trigger: ":swc-ddg"
+  replace: "https://duckduckgo.com/?q={{clipboard}}"
+  vars: [{ name: "clipboard", type: "clipboard"}]
+- trigger: ":swc-wiki"
+  replace: "https://en.wikipedia.org/w/?search='{{clipboard}}"
+  vars: [{ name: "clipboard", type: "clipboard"}]
+- trigger: ":swc-gh"
+  replace: "https://github.com/search?q={{clipboard}}"
+  vars: [{ name: "clipboard", type: "clipboard"}]
+- trigger: ":swc-so"
+  replace: "https://stackoverflow.com/search?q={{clipboard}}"
+  vars: [{ name: "clipboard", type: "clipboard"}]
+- trigger: ":swc-dh"
+  replace: "https://hub.docker.com/search?q={{clipboard}}"
+  vars: [{ name: "clipboard", type: "clipboard"}]
+- trigger: ":swc-wa"
+  replace: "https://www.wolframalpha.com/input/?i={{clipboard}}"
+  vars: [{ name: "clipboard", type: "clipboard"}]
+- trigger: ":swc-red"
+  replace: "https://www.reddit.com/search/?q={{clipboard}}"
+  vars: [{ name: "clipboard", type: "clipboard"}]
+- trigger: ":swc-bbc"
+  replace: "https://www.bbc.co.uk/search?q={{clipboard}}"
+  vars: [{ name: "clipboard", type: "clipboard"}]
+- trigger: ":swc-vt"
+  replace: "https://www.virustotal.com/gui/search/{{clipboard}}"
+  vars: [{ name: "clipboard", type: "clipboard"}]
+- trigger: ":swc-amz"
+  replace: "https://amazon.co.uk/s?k={{clipboard}}"
+  vars: [{ name: "clipboard", type: "clipboard"}]
+- trigger: ":swc-yt"
+  replace: "https://youtube.com/results?q={{clipboard}}"
+  vars: [{ name: "clipboard", type: "clipboard"}]
+- trigger: ":swc-maps"
+  replace: "https://www.google.com/maps/search/{{clipboard}}"
+  vars: [{ name: "clipboard", type: "clipboard"}]
+- trigger: ":swc-goo"
+  replace: "https://google.com/search?q={{clipboard}}"
+  vars: [{ name: "clipboard", type: "clipboard"}]
+  
+  
+  
+  

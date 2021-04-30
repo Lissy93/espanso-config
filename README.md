@@ -34,7 +34,7 @@ Contains a bunch of random, but handy utilitis, including:
 - Closing brackets, quotes and symbols: Save a keypress with `:(` and the corresponding bracket will be closed, with the cursor in the middle. This works for `()`, `[]`, `{}`, `<>`, `` ` ` ``, `''`, `""`, `__`, `--` and `**`
 - Markdown shortcuts: `:md-code` and `:md-collapse` output their corresponding markdown elements, and place the cursor inside
 - HTML shortcuts: Common tags, like `:hr`, `:br`, `:div`, `:span`, `:para`, `:h1`, `:h2` etc are autofilled, with the cursor placed inside the tag ready for the value. For custom web components and XML tags, use `:tag`, then type the name of the element
-- Easily format a link: With a link in the clipboard use `:html-anchor` (HTML), `:md-anchor` (markdown) or `:bb-anchor` (BB Code) to create an element with the href already set, and the cursor in the center ready for title/ name
+- Easily format a anchor element: With a URL in the clipboard use `:html-link` (HTML), `:md-link` (markdown) or `:bb-link` (BB Code) to create an element with the href already set, and the cursor in the center ready for title/ name
 - Generate deterministic passwords with Lesspass: Type `:pass` and then when prompted ender site name, account and master pass, and the password will be returned. (Requires the [Lesspass CLI tool](https://github.com/lesspass/lesspass/tree/master/cli) to be installed)
 - Formulate web searches: `:srch` followed by the service name will construct the search URL, and place the cursor in the right place to type the query. Works for DuckDuckGo, Wikipedia, Github, Stackoverflow, DockerHub, Wolframalpha, Reddit, BBC, Virus Total, Amazon, YouTube, Maps and Google. E.g. `:srch-wiki`
 
