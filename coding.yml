@@ -1,0 +1,62 @@
+name: coding 
+package_author: Alicia Sykes <https://aliciasykes.com>
+parent: default
+
+      
+matches:
+
+# JavaScript & Web Development
+
+# Adds a multi-line comment, with cursor in the middle
+- trigger: ":??"
+  replace: "/* $|$ */"
+
+# Inserts a HTML block comment  
+- trigger: ":=="
+  replace: "<!-- $|$ -->"
+
+# Inserts console.log statement 
+- trigger: ":con"
+  replace: "console.log($|$);"
+
+# JS console.log, will print variable name and value of a variable in your clipboard
+- trigger: ":print"
+  replace: "console.info({ {{clipboard}} });"
+  vars: [{ name: "clipboard", type: "clipboard"}]
+
+# Inserts i18n block, with the key using the contents of clipboard
+- trigger: ":trans"
+  replace: "$t('{{clipboard}}')"
+  vars: [{ name: "clipboard", type: "clipboard"}]
+  
+# Inserts CSS variable
+- trigger: ":var"
+  replace: "var(--$|$)"   
+
+# Inserts common HTML elements
+- trigger: :hr
+  replace: '<hr />'
+- trigger: :br
+  replace: '<br />'
+- trigger: :div
+  replace: '<div>$|$</div>'
+- trigger: :span
+  replace: '<span>$|$</span>'
+- trigger: :h1
+  replace: '<h1>$|$</h1>'
+- trigger: :h2
+  replace: '<h2>$|$</h2>'
+- trigger: :h3
+  replace: '<h3>$|$</h3>'
+- trigger: :para
+  replace: '<p>$|$</p>'
+  
+# Inserts any custom HTML, XML or web component tag 
+- trigger: ":tag"
+  replace: "<{{html.element}}>$|$</{{html.element}}>"
+  vars:
+  - name: "html"
+    type: form
+    params:
+      layout: "XML / HTML Element Inserter\nTag Name: {{element}}"
+      fields: { element: { type: text }}
