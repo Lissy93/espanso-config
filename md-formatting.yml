@@ -1,0 +1,57 @@
+# Shortcuts for formatting text posts in markdown, bbcode, and HTML
+# For use with Espanso, the open source cross-platform text expander
+# Licensed under MIT X11, © Alicia Sykes 2022: https://aliciasykes.com
+
+name: text-formatting 
+package_author: Alicia Sykes <alicia@omg.lol>
+parent: default
+matches:
+
+# Inserts a markdown code block
+- trigger: :md-code
+  replace: "```\n$|$\n```"
+  
+# Inserts markdown collapsable section
+- trigger: :md-collapse
+  replace: "\n<details>\n\t<summary>$|$</summary>\n\t<p></p>\n</details>"
+    
+# Outputs markdown link, with clipboard contents as the URL
+- trigger: ":md-link"
+  replace: "[$|$]({{clipboard}})"
+  vars:
+  - name: "clipboard"
+    type: "clipboard"
+    
+# Creates a HTML anchor element, with clipboard contents as href
+- trigger: ":html-link"
+  replace: "<a href=\"{{clipboard}}\" />$|$</a>"
+  vars:
+  - name: "clipboard"
+    type: "clipboard"
+
+# Outputs BB Code link, with clipboard contents as the URL
+- trigger: ":bb-link"
+  replace: "[url={{clipboard}}]$|$[/url]"
+  vars:
+  - name: "clipboard"
+    type: "clipboard"
+        
+# Auto close brackets, quotes and formatting modifiers, and put cursor in center
+- trigger: ':(('
+  replace: '($|$)'
+- trigger: ':[['
+  replace: '[$|$]'
+- trigger: ':{{'
+  replace: '{$|$}'
+- trigger: ':<<'
+  replace: '<$|$>'
+- trigger: ':``'
+  replace: '`$|$`'
+- trigger: ":\''"
+  replace: "\'$|$\'"
+- trigger: ':""'
+  replace: '"$|$"'
+- trigger: ':__'
+  replace: '_$|$_'
+- trigger: ':**'
+  replace: '*$|$*'
