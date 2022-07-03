@@ -1,0 +1,37 @@
+# Common special characters, whose ALT-key shortcuts are hard to remember
+
+name: characters 
+package_author: Alicia Sykes <https://aliciasykes.com>
+parent: default
+
+matches:
+# ASCII Arrows
+- triggers: [":-->", ":rarrow"]
+  replace: "→"
+- triggers: [":<--", ":larrow"]
+  replace: "←"
+- triggers: [":uarrow"]
+  replace: "↑"
+- triggers: [":darrow"]
+  replace: "↓"
+- triggers: [":lrarrow"]
+  replace: "↓"
+
+# Common Currency Symbols
+- trigger: ':eur'
+  replace: '€'
+- trigger: ':gbp'
+  replace: '£'
+- trigger: ':usd'
+  replace: '$'
+- trigger: ':jpy'
+  replace: '¥'
+- trigger: ':inr'
+  replace: '₹'
+- trigger: ':btc'
+  replace: '฿'
+- trigger: ':eth'
+  replace: 'Ξ'
+
+- triggers: [':(c)', ':copyright:']
+  replace: '©'
