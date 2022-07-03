@@ -26,12 +26,8 @@ matches:
   replace: alcohol
   propagate_case: true
   word: true
-- trigger: alein
+- triggers: [alein, alighn]
   replace: alien
-  propagate_case: true
-  word: true
-- trigger: alighn
-  replace: align
   propagate_case: true
   word: true
 - trigger: alternativley
@@ -46,11 +42,11 @@ matches:
   replace: anonymity
   propagate_case: true
   word: true
-- trigger: arbitory
-  replace: arbitrary
+- trigger: anual
+  replace: annual
   propagate_case: true
   word: true
-- trigger: arbitary
+- triggers: [arbitory, arbitary]
   replace: arbitrary
   propagate_case: true
   word: true
@@ -114,11 +110,7 @@ matches:
   replace: crisis
   propagate_case: true
   word: true
-- trigger: Chrismas
-  replace: Christmas
-  propagate_case: true
-  word: true
-- trigger: christmas
+- triggers: [Chrismas, christmas]
   replace: Christmas
   propagate_case: true
   word: true
@@ -134,8 +126,16 @@ matches:
   replace: collaborative
   propagate_case: true
   word: true
+- trigger: collapsable
+  replace: collapsible
+  propagate_case: true
+  word: true   
 - trigger: concious
   replace: conscious
+  propagate_case: true
+  word: true
+- trigger: conditionor
+  replace: conditioner
   propagate_case: true
   word: true
 - trigger: consistant
@@ -158,8 +158,20 @@ matches:
   replace: controversial
   propagate_case: true
   word: true
+- trigger: conviniently
+  replace: conveniently
+  propagate_case: true
+  word: true
+- trigger: convinient
+  replace: convenient
+  propagate_case: true
+  word: true
 - trigger: convinience
   replace: convenience
+  propagate_case: true
+  word: true
+- trigger: coppied
+  replace: copied
   propagate_case: true
   word: true
 - trigger: critisise
@@ -214,11 +226,7 @@ matches:
   replace: doughnut
   propagate_case: true
   word: true
-- trigger: duplecate
-  replace: duplicate
-  propagate_case: true
-  word: true
-- trigger: dupplicate
+- triggers: [duplecate, dupplicate]
   replace: duplicate
   propagate_case: true
   word: true
@@ -250,15 +258,7 @@ matches:
   replace: environment
   propagate_case: true
   word: true
-- trigger: entrpreners
-  replace: entrepreneurs
-  propagate_case: true
-  word: true
-- trigger: entrpreneurs
-  replace: entrepreneurs
-  propagate_case: true
-  word: true
-- trigger: entrpreneures
+- triggers: [entrpreners, entrpreneurs, entrpreneures]
   replace: entrepreneurs
   propagate_case: true
   word: true
@@ -298,11 +298,7 @@ matches:
   replace: extendable
   propagate_case: true
   word: true
-- trigger: extremley
-  replace: extremely
-  propagate_case: true
-  word: true
-- trigger: extrmley
+- triggers: [extremley, extrmley]
   replace: extremely
   propagate_case: true
   word: true
@@ -316,6 +312,10 @@ matches:
   word: true
 - trigger: filiment
   replace: filament
+  propagate_case: true
+  word: true
+- trigger: gaurantee
+  replace: guarantee
   propagate_case: true
   word: true
 - trigger: geomatry
@@ -402,11 +402,7 @@ matches:
   replace: lavender
   propagate_case: true
   word: true
-- trigger: lengh
-  replace: length
-  propagate_case: true
-  word: true
-- trigger: lentgh
+- triggers: [lengh, lentgh, lenth, lentgh]
   replace: length
   propagate_case: true
   word: true
@@ -494,6 +490,10 @@ matches:
   replace: neighbors
   propagate_case: true
   word: true
+- trigger: nicley
+  replace: nicely
+  propagate_case: true
+  word: true  
 - trigger: noticable
   replace: noticeable
   propagate_case: true
@@ -510,6 +510,10 @@ matches:
   replace: offline
   propagate_case: true
   word: true
+- triggers: [ommiting, omiting, ommitting]
+  replace: omitting 
+  propagate_case: true
+  word: true  
 - trigger: oppertunities
   replace: opportunities
   propagate_case: true
@@ -630,12 +634,8 @@ matches:
   replace: recipe
   propagate_case: true
   word: true
-- trigger: reccomend
+- triggers: [reccomend, recomended]
   replace: recommend
-  propagate_case: true
-  word: true
-- trigger: recomended
-  replace: recommended
   propagate_case: true
   word: true
 - trigger: recognise
@@ -698,15 +698,15 @@ matches:
   replace: scaffolding
   propagate_case: true
   word: true
-- trigger: senario
-  replace: scenario
+- trigger: sentance
+  replace: sentence
   propagate_case: true
   word: true
 - triggers: [semmi, semmy]
   replace: semi
   propagate_case: true
   word: true
-- trigger: scenerio
+- triggers: [scenerio, senario]
   replace: scenario
   propagate_case: true
   word: true
@@ -734,6 +734,10 @@ matches:
   replace: shadow
   propagate_case: true
   word: true
+- trigger: shiney
+  replace: shiny
+  propagate_case: true
+  word: true
 - trigger: sighn
   replace: sign
   propagate_case: true
@@ -751,8 +755,8 @@ matches:
   propagate_case: true
   word: true
 - trigger: sparce
-  replace: sparse
   propagate_case: true
+  replace: sparse
   word: true
 - trigger: specalist
   replace: specialist
@@ -886,8 +890,378 @@ matches:
   replace: whether
   propagate_case: true
   word: true
+- trigger: yeild
+  replace: yield
+  propagate_case: true
+  word: true
 - trigger: youghurt
   replace: yogurt
   propagate_case: true
+  word: true
+- trigger: vegtable
+  replace: vegetable
+  propagate_case: true
+  word: true
+- trigger: activley
+  replace: actively
+  propagate_case: true
+  word: true
+- trigger: hault
+  replace: halt
+  propagate_case: true
+  word: true
+- trigger: signiture
+  replace: signature
+  propagate_case: true
+  word: true
+- trigger: signitures
+  replace: signatures
+  propagate_case: true
+  word: true
+- trigger: independant
+  replace: independent
+  propagate_case: true
+  word: true
+- trigger: earnt
+  replace: earned
+  propagate_case: true
+  word: true
+- trigger: occours
+  replace: occurs
+  propagate_case: true
+  word: true
+- trigger: unfortunently
+  replace: unfortunately
+  propagate_case: true
+  word: true
+- trigger: overide
+  replace: override
+  propagate_case: true
+  word: true
+- trigger: appologies
+  replace: apologies
+  propagate_case: true
+  word: true
+- trigger: convertor
+  replace: converter
+  propagate_case: true
+  word: true
+- trigger: overridding
+  replace: overriding
+  propagate_case: true
+  word: true
+- trigger: overiding
+  replace: overriding
+  propagate_case: true
+  word: true
+- trigger: overidding
+  replace: overriding
+  propagate_case: true
+  word: true
+- trigger: favourite
+  replace: favorite
+  propagate_case: true
+  word: true
+- trigger: mundaine
+  replace: mundane
+  propagate_case: true
+  word: true
+- trigger: remotley
+  replace: remotely
+  propagate_case: true
+  word: true
+- trigger: everythings
+  replace: everything
+  propagate_case: true
+  word: true
+- trigger: exactley
+  replace: exactly
+  propagate_case: true
+  word: true
+- trigger: expirienced
+  replace: experienced
+  propagate_case: true
+  word: true
+- trigger: lenght
+  replace: length
+  propagate_case: true
+  word: true
+- trigger: necissarily
+  replace: necessarily
+  propagate_case: true
+  word: true
+- trigger: repeatidly
+  replace: repeatedly
+  propagate_case: true
+  word: true
+- trigger: coloumns
+  replace: columns
+  propagate_case: true
+  word: true
+- trigger: chanel
+  replace: channel
+  propagate_case: true
+  word: true
+- trigger: indeinetley
+  replace: indefinitely
+  propagate_case: true
+  word: true
+- trigger: occoured
+  replace: occurred
+  propagate_case: true
+  word: true
+- trigger: behaviour
+  replace: behavior
+  propagate_case: true
+  word: true
+- trigger: sufice
+  replace: suffice
+  propagate_case: true
+  word: true
+- trigger: teh
+  replace: the
+  propagate_case: true
+  word: true
+- trigger: stright
+  replace: straight
+  propagate_case: true
+  word: true
+- trigger: neautral
+  replace: neutral
+  word: true
+- trigger: infomation
+  replace: information
+  propagate_case: true
+  word: true
+- trigger: deleteing
+  replace: deleting
+  propagate_case: true
+  word: true
+- trigger: createing
+  replace: creating
+  propagate_case: true
+  word: true
+- trigger: targetted
+  replace: targeted
+  propagate_case: true
+  word: true
+- trigger: arcitecture
+  replace: architecture
+  propagate_case: true
+  word: true
+- trigger: prerequsites
+  replace: prerequisites
+  propagate_case: true
+  word: true
+- trigger: direcroty
+  replace: directory
+  propagate_case: true
+  word: true
+- trigger: semmi
+  replace: semi
+  propagate_case: true
+  word: true
+- trigger: prefering
+  replace: preferring
+  propagate_case: true
+  word: true
+- trigger: unnecissary
+  propagate_case: true
+  replace: unnecessary
+  word: true
+- trigger: definatley
+  replace: definitely
+  propagate_case: true
+  word: true
+- trigger: decission
+  replace: decision
+  propagate_case: true
+  word: true
+- trigger: practicle
+  replace: practical
+  propagate_case: true
+  word: true
+- trigger: ommited
+  replace: omited
+  propagate_case: true
+  word: true
+- trigger: behaviour
+  replace: behavior
+  propagate_case: true
+  word: true
+- trigger: availiblity
+  replace: availability
+  propagate_case: true
+  word: true
+- trigger: easyiest
+  replace: easiest
+  propagate_case: true
+  word: true
+- trigger: comercial
+  replace: commercial
+  propagate_case: true
+  word: true
+- trigger: entirley
+  replace: entirely
+  propagate_case: true
+  word: true
+- trigger: reccomended
+  replace: recommended
+  propagate_case: true
+  word: true
+- trigger: merley
+  replace: merely
+  propagate_case: true
+  word: true
+- trigger: immidiate
+  replace: immediate
+  propagate_case: true
+  word: true
+- trigger: unauthorised
+  replace: unauthorized
+  propagate_case: true
+  word: true
+- trigger: symol
+  replace: symbol
+  propagate_case: true
+  word: true
+
+- trigger: insainley
+  replace: insanely
+  word: true
+- trigger: insaine
+  replace: insane
+  word: true
+- trigger: leveles
+  replace: levels
+  word: true
+- trigger: noicse
+  replace: noise
+  word: true
+- trigger: lunimance
+  replace: luminescence
+  word: true
+- trigger: appropriatley
+  replace: appropriately
+  word: true
+- trigger: flavour
+  replace: flavour
+  word: true
+- trigger: consistenctcy
+  replace: consistency
+  word: true
+- trigger: yeild
+  replace: yield
+  word: true
+- trigger: succesfully
+  replace: successfully
+  word: true
+- trigger: spair
+  replace: spare
+  word: true
+- trigger: digestable
+  replace: digestible
+  word: true
+- trigger: deafault
+  replace: default
+  word: true
+- trigger: effectivley
+  replace: effectively
+  word: true
+- trigger: errased
+  replace: erased
+  word: true
+- trigger: reoccoouring
+  replace: reoccurring
+  word: true
+- trigger: securley
+  replace: securely
+  word: true
+- trigger: occour
+  replace: occur
+  word: true
+- trigger: appropriatley
+  replace: appropriately
+  word: true
+- trigger: privilage
+  replace: privilege
+  word: true
+- trigger: esculation
+  replace: escalation
+  word: true
+- trigger: trafic
+  replace: traffic
+  word: true
+- trigger: alterntive
+  replace: alternative
+  word: true
+- trigger: disapearing
+  replace: disappearing
+  word: true
+- trigger: programatically
+  replace: programmatically
+  word: true
+- trigger: particuarly
+  replace: particularly
+  word: true
+- trigger: indefinatley
+  replace: indefinitely
+  word: true
+- trigger: emiting
+  replace: emitting
+  word: true
+- trigger: direcitve
+  replace: directive
+  word: true
+- trigger: destionation
+  replace: destination
+  word: true
+- trigger: beggining
+  replace: begging
+  word: true
+- trigger: labled
+  replace: labeled
+  word: true
+- trigger: announcment
+  replace: announcement
+  word: true
+- trigger: thourough
+  replace: thorough
+  word: true
+- trigger: unintentinally
+  replace: unintentionally
+  word: true
+- trigger: deamon
+  replace: daemon
+  word: true
+- trigger: benifits
+  replace: benefits
+  word: true
+- trigger: kernal
+  replace: kernel
+  word: true
+- trigger: tunel
+  replace: tunnel
+  word: true
+- trigger: sensored
+  replace: censored
+  word: true
+- trigger: simulatniously
+  replace: simultaneously
+  word: true
+- trigger: globaly
+  replace: globally
+  word: true
+- trigger: cisrcumstances
+  replace: circumstances
+  word: true
+- trigger: boundries
+  replace: boundaries
+  word: true
+- trigger: missunderstood
+  replace: misunderstood
+  word: true
+- trigger: completley
+  replace: completely
   word: true
     
